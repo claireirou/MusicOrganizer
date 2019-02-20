@@ -71,11 +71,12 @@ public class MusicOrganizer
      */
     public void playRandomTrack()
     {
-        randomInt = random.nextInt(tracks.size())-1; //random index number in tracks
-        Track track = tracks.get(randomInt);
-        player.startPlaying(track.getFilename());
-        System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
-        
+        if(tracks.size() > 0) {
+            randomInt = random.nextInt(tracks.size()); //random index number in tracks
+            Track track = tracks.get(randomInt);
+            player.startPlaying(track.getFilename());
+            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+        }
     }
     
     /**
