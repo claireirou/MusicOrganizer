@@ -87,10 +87,6 @@ public class MusicOrganizer
     {
         ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
         for(Track track : shufflePlay) {
-            randomInt = random.nextInt(shufflePlay.size());
-            track = shufflePlay.get(randomInt);
-            player.startPlaying(track.getFilename());
-            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
             
             
         }
