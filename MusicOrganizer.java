@@ -80,6 +80,24 @@ public class MusicOrganizer
     }
     
     /**
+     * Play all tracks in the collection in random order.
+     * Each track is only played once.
+     */
+    public void shuffleAllTracks()
+    {
+        ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
+        for(Track track : shufflePlay) {
+            randomInt = random.nextInt(shufflePlay.size());
+            track = shufflePlay.get(randomInt);
+            player.startPlaying(track.getFilename());
+            System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
+            
+            
+        }
+        
+    }
+    
+    /**
      * Return the number of tracks in the collection.
      * @return The number of tracks in the collection.
      */
