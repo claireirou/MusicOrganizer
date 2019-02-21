@@ -87,9 +87,9 @@ public class MusicOrganizer
     {
         if(tracks.size() > 0) {
             ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
-            for(Track track : shufflePlay) {
+            while(shufflePlay.size() > 0) {
                 randomInt = random.nextInt(shufflePlay.size());
-                track = shufflePlay.get(randomInt);
+                Track track = shufflePlay.get(randomInt);
                 player.playSample(track.getFilename());
                 shufflePlay.remove(randomInt);
             }
