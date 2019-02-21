@@ -27,7 +27,7 @@ public class MusicPlayer
         player = null;
     }
     
-    /**
+     /**
      * Play a part of the given file.
      * The method returns once it has finished playing.
      * @param filename The file to be played.

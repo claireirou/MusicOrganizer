@@ -85,12 +85,15 @@ public class MusicOrganizer
      */
     public void shuffleAllTracks()
     {
-        ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
-        for(Track track : shufflePlay) {
-            
-            
+        if(tracks.size() > 0) {
+            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
+            for(Track track : shufflePlay) {
+                randomInt = random.nextInt(shufflePlay.size());
+                track = shufflePlay.get(randomInt);
+                player.playSample(track.getFilename());
+                shufflePlay.remove(randomInt);
+            }
         }
-        
     }
     
     /**
@@ -202,5 +205,11 @@ public class MusicOrganizer
         for(Track track : tempTracks) {
             addTrack(track);
         }
+    }
+    
+    public void playSample(int index)
+    {
+        Track track = tracks.get(index);
+        player.playSample(track.getFilename());
     }
 }
