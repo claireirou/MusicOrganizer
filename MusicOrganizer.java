@@ -81,7 +81,7 @@ public class MusicOrganizer
     }
     
     /**
-     * Play all tracks in the collection in random order.
+     * Play a sample of all tracks in the collection in random order.
      * Each track is only played once.
      */
     public void shuffleAllTracks()
