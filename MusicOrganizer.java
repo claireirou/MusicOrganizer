@@ -86,10 +86,12 @@ public class MusicOrganizer
     public void shuffleAllTracks()
     {
         if(tracks.size() > 0) {
-            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks);
+            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks); //creates a copy of the tracks array
             while(shufflePlay.size() > 0) {
                 randomInt = random.nextInt(shufflePlay.size());
                 Track track = shufflePlay.get(randomInt);
+                
+                System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
                 player.playSample(track.getFilename());
                 shufflePlay.remove(randomInt);
             }
