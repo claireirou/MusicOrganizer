@@ -5,6 +5,7 @@ import java.util.Collections;
 /**
  * A class to hold details of audio tracks.
  * Individual tracks may be played.
+ * Multiple tracks may also be played at your own risk
  * 
  * @author Claire Iroudayassamy
  * @version 2019.02.20
@@ -19,7 +20,7 @@ public class MusicOrganizer
     private TrackReader reader;
     //A Random object.
     private Random random;
-    //A random integer.
+    //An integer that will eventually hold a random int value.
     private int randomInt;
 
     /**
@@ -87,13 +88,42 @@ public class MusicOrganizer
     public void shuffleAllTracks()
     {
         if(tracks.size() > 0) {
-            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks); //creates a copy of the tracks array
+            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks); //creates a copy of the tracks arraylist
             Collections.shuffle(shufflePlay); //shuffles the shufflePlay list.
+            
+            System.out.println("\n>>>>>>CRITICAL PAUSE BUTTON FAILURE!<<<<<<" +
+                                "\n>>PLEASE RESET JVR TO STOP PLAYING MUSIC<<\n");
             
             for(Track track : shufflePlay) {
                 System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
                 player.playSample(track.getFilename());
             }
+            
+            System.out.println("\n>>>>PAUSE BUTTON BACK ONLINE<<<<");
+        }
+    }
+    
+    /**
+     * Plays all tracks in the list in random order...at the same time.
+     * Not for the faint of heart.
+     */
+    public void NiGhTMaReMoDe()
+    {
+        if(tracks.size() > 0) {
+            ArrayList<Track> shufflePlay = new ArrayList<Track>(tracks); //creates a copy of the tracks arrayList
+            
+            while(shufflePlay.size() > 0) {
+                randomInt = random.nextInt(shufflePlay.size());
+                Track track = shufflePlay.get(randomInt);
+                player.startPlaying(track.getFilename());
+                shufflePlay.remove(randomInt);
+            }
+            
+            System.out.println("\nNow playing : ERROR\n");
+            System.out.println(">>>>>>>>>I HEARD YOU LIKE SONGS<<<<<<<<<" +
+                               "\n>>>>SO I PUT SONGS INSIDE YOUR SONGS<<<<" +
+                               "\n>>>>>>>>>>>>>>>>>>ENJOY<<<<<<<<<<<<<<<<<\n");
+            System.out.println("Reset JVR at anytime to exit Nightmare Mode\n");
         }
     }
     
